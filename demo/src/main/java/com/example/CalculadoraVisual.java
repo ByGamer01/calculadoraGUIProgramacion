@@ -30,8 +30,8 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         this.setLayout(new BorderLayout());
 
         // 2. Crear los 3 componentes
-        JLabel lblHistorico = new JLabel(" ");
-        JLabel lblPantalla = new JLabel("0");
+        lblHistorico = new JLabel(" ");
+        lblPantalla = new JLabel("0");
         JPanel panelBotones = new JPanel();
 
         // 3. Añade los 3 componentes al JFrame usando BorderLayout
@@ -131,6 +131,9 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
     public void actionPerformed(ActionEvent evt) {
         String comando = evt.getActionCommand(); // Devuelve "7", "+", "C", etc.
         System.out.println("Botón pulsado: " + comando);
+        
+        // Si es un número, lo añadimos a la pantalla
+        lblPantalla.setText(comando);
     }
 
 }
