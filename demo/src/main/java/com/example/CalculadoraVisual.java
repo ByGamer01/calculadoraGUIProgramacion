@@ -1,6 +1,8 @@
 package com.example;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,15 +13,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
+
 
 public class CalculadoraVisual extends JFrame implements KeyListener, ActionListener { // KeyListener para los botones
 
     // Atributos de clase (accesibles desde todos los métodos)
     private JLabel lblHistorico;
     private JLabel lblPantalla;
-
 
     public CalculadoraVisual() {
         this.setTitle("Calculadora GUI - David");
@@ -50,7 +50,7 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
 
         // Los botones se añaden en orden de lectura (izquierda a derecha, arriba a
         // abajo)
-        // Primera Division 
+        // Primera Division
         JButton btn7 = new JButton("7");
         panelBotones.add(btn7);
         btn7.addActionListener(this);
@@ -91,12 +91,13 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         JButton btnSum = new JButton("+");
         panelBotones.add(btnSum);
         btnSum.addActionListener(this);
-        
+
         // Cuarta Division
         JButton btn0 = new JButton("0");
         panelBotones.add(btn0);
         btn0.addActionListener(this);
         JButton btnC = new JButton("C");
+        btnC.setBackground(Color.RED);
         panelBotones.add(btnC);
         btnC.addActionListener(this);
         JButton btnResultado = new JButton("=");
@@ -108,7 +109,6 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         this.addKeyListener(this);
         this.setFocusable(true);
 
-
         this.setVisible(true);
     }
 
@@ -119,20 +119,23 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
 
     @Override
     public void keyPressed(KeyEvent evt) {
-        String 
+        char c = evt.getKeyChar();
+
+        System.out.println("Tecla tecleada: " + c);
+        lblPantalla.setText(String.valueOf(c));
+
     }
 
     @Override
     public void keyReleased(KeyEvent evt) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'keyReleased'");
+
     }
 
     @Override
     public void actionPerformed(ActionEvent evt) {
         String comando = evt.getActionCommand(); // Devuelve "7", "+", "C", etc.
         System.out.println("Botón pulsado: " + comando);
-        
+
         // Si es un número, lo añadimos a la pantalla
         lblPantalla.setText(comando);
     }
