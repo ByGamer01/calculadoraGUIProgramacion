@@ -1,24 +1,18 @@
 package com.example;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
-public class CalculadoraLogica extends JFrame implements ActionListener {
+public class CalculadoraLogica {
 
     private double numero1;
     private String operacion;
     private boolean nuevoNumero;
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+    public CalculadoraLogica() {
+        this.numero1 = 0;
+        this.operacion = "";
+        this.nuevoNumero = true;
     }
 
-    public static void main(String[] args) {
-        new CalculadoraLogica();
+    public String procesarEntrada(String comando) {
+        return comando;
     }
 }
