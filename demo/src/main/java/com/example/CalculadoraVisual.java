@@ -49,7 +49,7 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         panelBotones.setLayout(new GridLayout(4, 4, 5, 5));
 
         // Los botones se añaden en orden de lectura (izquierda a derecha, arriba a
-        // abajo).
+        // abajo)
         // Primera Division 
         JButton btn7 = new JButton("7");
         panelBotones.add(btn7);
@@ -105,20 +105,21 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         JButton btnResta = new JButton("-");
         panelBotones.add(btnResta);
         btnResta.addActionListener(this);
+        this.addKeyListener(this);
+        this.setFocusable(true);
+
 
         this.setVisible(true);
     }
 
     @Override
     public void keyTyped(KeyEvent evt) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'keyTyped'");
+
     }
 
     @Override
     public void keyPressed(KeyEvent evt) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'keyPressed'");
+        String 
     }
 
     @Override
