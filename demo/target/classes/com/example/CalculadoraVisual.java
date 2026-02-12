@@ -30,8 +30,8 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         this.setSize(400, 500);
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage()); // Icono Png, tuve que cambiar el pom.xml segun como me decian en stack overflow, ya que al parecer el sistema de rutas de Maven no encuentra el archivo si no se lo pones en la informacion del proyecto. 
-        // encontré el metodo buscando por internet, y viendo un video de 5 minutos
+        this.setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage());
+
         // 1. Definir el layout principal
         this.setLayout(new BorderLayout());
 

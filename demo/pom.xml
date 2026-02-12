@@ -19,6 +19,13 @@
             <artifactId>JTattoo</artifactId>
             <version>1.6.13</version>
         </dependency>
-    </dependencies>
+    </dependencies> 
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java/com/example</directory>
+            </resource>
+        </resources>
+    </build>
 
 </project>
