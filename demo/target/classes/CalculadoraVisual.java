@@ -14,6 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 
 public class CalculadoraVisual extends JFrame implements KeyListener, ActionListener { // KeyListener para los botones
@@ -27,13 +30,14 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
 
     public CalculadoraVisual() {
         this.setTitle("Calculadora GUI - David");
-        this.setSize(400, 500);
+        this.setSize(240, 350);
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage()); // Icono Png, tuve que cambiar el pom.xml segun como me decian en stack overflow, ya que al parecer el sistema de rutas de Maven no encuentra el archivo si no se lo pones en la informacion del proyecto. 
         // encontré el metodo buscando por internet, y viendo un video de 5 minutos
         // 1. Definir el layout principal
         this.setLayout(new BorderLayout());
+        
 
         // 2. Crear los 3 componentes
         lblHistorico = new JLabel(" ");
@@ -41,9 +45,21 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
 
         // Personalizacion de los labels, la del historial (lblHistorico) & la de las operaciones (lblPantalla)
         lblHistorico.setForeground(Color.CYAN);
+        lblHistorico.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblHistorico.setBorder(BorderFactory.createEmptyBorder(15, 10, 15, 10));
+        lblHistorico.setOpaque(true);
+        lblHistorico.setBackground(Color.darkGray);
+        lblHistorico.setFont(new Font("Arial", Font.BOLD, 25));
+
+
+        // Personalizacion del lbl Pantalla
+        lblPantalla.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblPantalla.setBorder(BorderFactory.createLineBorder(Color.RED));
+        lblPantalla.setFont(new Font("Arial", Font.BOLD, 50));
+
 
         JPanel panelBotones = new JPanel();
-
+        panelBotones.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         // 3. Añade los 3 componentes al JFrame usando BorderLayout
 
         // - lblHistorico va en NORTH
@@ -119,7 +135,13 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         this.addKeyListener(this);
         this.setFocusable(true);
 
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
+    }
+
+    private Color Color(int i, int j, int k, int l) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'Color'");
     }
 
     @Override
