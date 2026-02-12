@@ -121,9 +121,17 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
 
     @Override
     public void keyPressed(KeyEvent evt) {
-        String comando = String.valueOf(evt.getKeyChar());
+        String comando;
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) { // el enter es como hacer el =
+            comando = "=";
+        } else {
+            comando = String.valueOf(evt.getKeyChar());
+        }
+
         String resultado = logica.procesarEntrada(comando);
         lblPantalla.setText(resultado);
+        lblHistorico.setText(logica.getHistorico());
     }
 
     @Override
@@ -137,6 +145,7 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         System.out.println("Botón pulsado: " + comando);
         String resultado = logica.procesarEntrada(comando);
         lblPantalla.setText(resultado);
+        lblHistorico.setText(logica.getHistorico());
     }
 
 }
