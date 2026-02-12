@@ -129,17 +129,21 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         } else {
             comando = String.valueOf(evt.getKeyChar());
         }
+        try {
+            String resultado = logica.procesarEntrada(comando);
+            lblPantalla.setText(resultado);
+            lblHistorico.setText(logica.getHistorico());
 
-        String resultado = logica.procesarEntrada(comando);
-        lblPantalla.setText(resultado);
-        lblHistorico.setText(logica.getHistorico());
-
-        if (resultado.equals("Error")) { // El mismo caso que el action performed para que no haya brechas.
-            JOptionPane.showMessageDialog(this,
+            if (resultado.equals("Error")) { // El mismo caso que el action performed para que no haya brechas.
+                JOptionPane.showMessageDialog(this,
                     "indivisible por 0 :D",
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
+            }
+        } catch(Exception e) {
+            System.out.println("Entrada no vàlida: " + comando);
         }
+        
     }
 
     @Override

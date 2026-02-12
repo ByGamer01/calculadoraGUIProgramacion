@@ -71,6 +71,10 @@ public class CalculadoraLogica {
             nuevoNumero = true;
             pantalla = "0";
             historico = " ";
+        } else {
+        // Entrada no reconocida, lanzar excepción
+        throw new IllegalArgumentException("Entrada no vàlida: " + comando); // Por el try-catch
+
         }
 
         return pantalla;
