@@ -53,6 +53,12 @@ public class CalculadoraLogica {
                     resultado = numero1 * numero2;
                     break;
                 case "/":
+                    if (numero2 == 0) {
+                        pantalla = "Error";
+                        historico = "indivisible por 0";
+                        nuevoNumero = true;
+                        return pantalla;
+                    }
                     resultado = numero1 / numero2;
                     break;
             }

@@ -12,6 +12,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class CalculadoraVisual extends JFrame implements KeyListener, ActionListener { // KeyListener para los botones
@@ -132,6 +133,13 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         String resultado = logica.procesarEntrada(comando);
         lblPantalla.setText(resultado);
         lblHistorico.setText(logica.getHistorico());
+
+        if (resultado.equals("Error")) { // El mismo caso que el action performed para que no haya brechas.
+            JOptionPane.showMessageDialog(this,
+                    "indivisible por 0 :D",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @Override
@@ -146,6 +154,13 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
         String resultado = logica.procesarEntrada(comando);
         lblPantalla.setText(resultado);
         lblHistorico.setText(logica.getHistorico());
+
+        if (resultado.equals("Error")) {
+            JOptionPane.showMessageDialog(this,
+                    "Indivisible por 0", // no se puede dividir por 0 :D
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
 
 }
