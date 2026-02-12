@@ -14,12 +14,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public class CalculadoraVisual extends JFrame implements KeyListener, ActionListener { // KeyListener para los botones
 
     // Atributos de clase (accesibles desde todos los métodos)
     private JLabel lblHistorico;
     private JLabel lblPantalla;
+
+    // Calculadora Logica
+    private CalculadoraLogica logica = new CalculadoraLogica();
 
     public CalculadoraVisual() {
         this.setTitle("Calculadora GUI - David");
@@ -119,11 +121,9 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
 
     @Override
     public void keyPressed(KeyEvent evt) {
-        char c = evt.getKeyChar();
-
-        System.out.println("Tecla tecleada: " + c);
-        lblPantalla.setText(String.valueOf(c));
-
+        String comando = String.valueOf(evt.getKeyChar());
+        String resultado = logica.procesarEntrada(comando);
+        lblPantalla.setText(resultado);
     }
 
     @Override
@@ -133,11 +133,10 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
 
     @Override
     public void actionPerformed(ActionEvent evt) {
-        String comando = evt.getActionCommand(); // Devuelve "7", "+", "C", etc.
+        String comando = evt.getActionCommand();
         System.out.println("Botón pulsado: " + comando);
-
-        // Si es un número, lo añadimos a la pantalla
-        lblPantalla.setText(comando);
+        String resultado = logica.procesarEntrada(comando);
+        lblPantalla.setText(resultado);
     }
 
 }
