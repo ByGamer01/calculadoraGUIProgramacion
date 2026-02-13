@@ -9,15 +9,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 
 public class CalculadoraVisual extends JFrame implements KeyListener, ActionListener { // KeyListener para los botones
 
@@ -137,11 +136,6 @@ public class CalculadoraVisual extends JFrame implements KeyListener, ActionList
 
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-    }
-
-    private Color Color(int i, int j, int k, int l) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'Color'");
     }
 
     @Override
